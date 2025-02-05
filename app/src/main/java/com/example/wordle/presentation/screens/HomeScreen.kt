@@ -45,9 +45,7 @@ fun LogoHeader() {
     Box(
         modifier = Modifier.padding(horizontal = 3.dp)
             .fillMaxWidth()
-            .height(150.dp)
-            .border(1.dp, Color.Gray, RoundedCornerShape(4.dp)),
-
+            .height(150.dp),
         contentAlignment = Alignment.Center
     ) {
         Image(
@@ -98,10 +96,17 @@ fun ExampleRow(word: String, colors: List<Color>, description: String) {
                 Box(
                     modifier = Modifier
                         .size(40.dp)
-                        .background(colors[index]),
+                        .background(Color.Black) // Fondo negro del cuadro
+                        .border(2.dp, Color.Gray), // Borde del cuadro
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(text = char.toString(), fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                    Text(
+                        text = char.toString(),
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = if (colors[index] != Color.Gray) Color.White else Color.Gray,
+                        modifier = Modifier.background(colors[index]) // Colorea solo la letra correspondiente
+                    )
                 }
                 Spacer(modifier = Modifier.width(4.dp))
             }
@@ -110,6 +115,7 @@ fun ExampleRow(word: String, colors: List<Color>, description: String) {
         Text(description, fontSize = 16.sp, color = Color.White)
     }
 }
+
 
 @Composable
 fun Buttons() {
