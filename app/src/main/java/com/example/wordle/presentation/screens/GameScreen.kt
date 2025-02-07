@@ -81,24 +81,31 @@ fun WordleScreen() {
         }
     }
 }
-
 @Composable
 fun WordGrid() {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(12.dp),  // Separación vertical entre filas
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         repeat(6) {
-            Row(modifier = Modifier.padding(2.dp)) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp),  // Separación horizontal entre cuadros
+                verticalAlignment = Alignment.CenterVertically // Alineación vertical de las filas
+            ) {
                 repeat(5) {
                     Box(
                         modifier = Modifier
                             .size(50.dp)
                             .background(Color.DarkGray, RoundedCornerShape(8.dp))
-                            .padding(5.dp)
                     )
                 }
             }
         }
     }
 }
+
+
 
 @Composable
 fun Keyboard(letters: List<String>) {
