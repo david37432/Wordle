@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.wordle.presentation.screens.ScoreScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +33,13 @@ class MainActivity : ComponentActivity() {
     }
 }
 @Preview
+
 @Composable
 fun WordleScreen() {
     val letters = listOf(
         "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-        "A", "S", "D", "F", "G", "H", "J", "K", "L",
-        "Z", "X", "C", "V", "B", "N", "M"
+        "A", "S", "D", "F", "G", "H", "J", "K", "L","Ñ",
+        "Z", "X", "C", "V", "B", "N", "M","⌫"
     )
 
     Column(
@@ -114,8 +116,8 @@ fun Keyboard(letters: List<String>) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         val row1 = letters.take(10)
-        val row2 = letters.drop(10).take(9)
-        val row3 = letters.drop(19)
+        val row2 = letters.drop(10).take(10)
+        val row3 = letters.drop(20)
 
         KeyboardRow(row1)
         KeyboardRow(row2)
@@ -132,9 +134,9 @@ fun KeyboardRow(letters: List<String>) {
         letters.forEach { letter ->
             Box(
                 modifier = Modifier
-                    .size(40.dp)
+                    .size(35.dp)
                     .background(Color.DarkGray, CircleShape)
-                    .padding(8.dp)
+                    .padding(4.dp)
                     .clickable { /* Acción al presionar una letra */ },
                 contentAlignment = Alignment.Center
             ) {
@@ -142,4 +144,9 @@ fun KeyboardRow(letters: List<String>) {
             }
         }
     }
+}
+
+@Composable
+fun GameScreen() {
+    GameScreen()
 }

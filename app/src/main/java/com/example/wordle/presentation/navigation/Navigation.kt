@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.wordle.presentation.screens.GameScreen
+import GameScreen
 import com.example.wordle.presentation.screens.HomeScreen
 import com.example.wordle.presentation.screens.ScoreScreen
 
